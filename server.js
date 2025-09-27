@@ -2,6 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const appRoutes = require('./routes/appRoutes');
 const adminRoutes = require('./routes/adminRouter');
+const contactRoutes = require('./routes/contactRoutes');
 const cors = require("cors");
 require('dotenv').config();
 
@@ -17,6 +18,7 @@ app.use(bodyParser.json());
 
 app.use('/api/admin', adminRoutes);
 app.use('/api/app', appRoutes);
+app.use('/api/contact', contactRoutes);
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {

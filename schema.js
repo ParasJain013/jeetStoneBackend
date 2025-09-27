@@ -29,7 +29,16 @@ const productSchema = Joi.object({
     productImages: Joi.array().items(Joi.string().uri()).required()
 });
 
+const contactSchema = Joi.object({
+    name: Joi.string().min(2).max(50).required(),
+    email: Joi.string().email().required(),
+    phone: Joi.string().pattern(/^[0-9]{10,15}$/).required(),
+    message: Joi.string().min(1).required(),
+});
+
+
 module.exports = {
     categorySchema,
-    productSchema
+    productSchema,
+    contactSchema
 };
