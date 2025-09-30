@@ -9,7 +9,7 @@ require('dotenv').config();
 const app = express();
 
 app.use(cors({
-  origin: ["http://localhost:5173","https://faguna-stones.vercel.app"],
+  origin: ["http://localhost:5173","https://faguna-stones.vercel.app", "https://www.jeetstoneindustries.in"],
   credentials: true
 }));
 // Middleware
