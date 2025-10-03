@@ -7,7 +7,7 @@ const cors = require("cors");
 require('dotenv').config();
 
 const app = express();
-
+app.use((req,res)=>console.log(JSON.stringify(req)));
 app.use(cors({
   origin: ["http://localhost:5173","https://faguna-stones.vercel.app", "https://www.jeetstoneindustries.in", "https://api.cron-job.org"],
   credentials: true
@@ -19,7 +19,7 @@ app.use(bodyParser.json());
 app.use('/api/admin', adminRoutes);
 app.use('/api/app', appRoutes);
 app.use('/api/contact', contactRoutes);
-app.get('/', (req, res) => {
+app.get('/cron', (req, res) => {
     res.send('API is running...');
 });
 
