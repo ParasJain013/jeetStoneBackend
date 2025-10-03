@@ -7,7 +7,16 @@ const cors = require("cors");
 require('dotenv').config();
 
 const app = express();
-app.use((req,res)=>console.log(JSON.stringify(req)));
+app.use((req, res, next) => {
+  console.log("Incoming request:", {
+    method: req.method,
+    url: req.originalUrl,
+    origin: req.headers.origin,
+    ip: req.ip
+  });
+  next();
+});
+
 app.use(cors({
   origin: ["http://localhost:5173","https://faguna-stones.vercel.app", "https://www.jeetstoneindustries.in", "https://api.cron-job.org"],
   credentials: true
