@@ -25,12 +25,14 @@ app.use(cors({
 app.use(bodyParser.json());
 
 
+app.get('/cron', (req, res) => {
+  res.setHeader('Content-Type', 'text/plain');
+  res.status(200).send('✅ Cron executed successfully at ' + new Date().toISOString());
+});
+
 app.use('/api/admin', adminRoutes);
 app.use('/api/app', appRoutes);
 app.use('/api/contact', contactRoutes);
-app.get('/cron', (req, res) => {
-    res.send('API is running...');
-});
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
