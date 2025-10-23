@@ -22,10 +22,10 @@ app.use((req, res, next) => {
 
 app.use(cors({
   origin: [
-    "http://localhost:5173",
     "https://faguna-stones.vercel.app",
     "https://www.jeetstoneindustries.in",
-    "https://api.cron-job.org"
+    "https://api.cron-job.org",
+    "https://jeetstone-nextjs.vercel.app"
   ],
   credentials: true
 }));
